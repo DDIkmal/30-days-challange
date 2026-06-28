@@ -1,18 +1,36 @@
-// DAY 1: CALCULATOR
-// Goal: Bangun calculator dasar (tambah, kurang, kali, bagi, clear)
+// DAY 2: TO-DO LIST
+// Goal: tambah task, tandai selesai, hapus task
 
-// 1. Ambil elemen display dan semua tombol dari HTML
-// const display = document.querySelector('...');
+// KONSEP BARU dibanding Day 1:
+// - Kamu butuh nyimpen LEBIH dari 1 nilai sekaligus (banyak task), jadi pakai ARRAY, bukan 1 variabel string
+// - Setiap kali array berubah (nambah/hapus task), tampilan HARUS di-render ulang dari awal
+//   Ini disebut konsep "render": baca data dari array -> ubah jadi HTML -> tampilkan
 
-// 2. Simpan state sederhana
-// let currentInput = '';
+// 1. Ambil elemen input, button "Add", dan container list dari HTML
 
-// 3. Saat tombol angka diklik -> tambahkan angka ke currentInput, update display
-// 4. Saat tombol operator diklik -> simpan operator & angka pertama
-// 5. Saat tombol "=" diklik -> hitung hasilnya, tampilkan di display
-// 6. Saat tombol "C" diklik -> reset semua state
+// 2. Siapkan array kosong untuk nyimpen semua task
+// let tasks = [];
+// Setiap task bisa berupa object, contoh: { text: "Belajar JS", done: false }
 
-// Tantangan tambahan (kalau waktu masih ada):
-// - Support keyboard input (event keydown)
-// - Cegah multiple "." di satu angka
-// - Tampilkan history kalkulasi terakhir
+// 3. Buat function render() yang:
+//    - Mengosongkan container list (innerHTML = '')
+//    - Looping (forEach/map) lewat array tasks
+//    - Untuk setiap task, buat elemen <li> baru dan masukkan ke container
+//    - Kasih tombol "hapus" dan checkbox/tombol "selesai" di tiap <li>
+
+// 4. Saat button "Add" diklik:
+//    - Ambil value dari input
+//    - Kalau tidak kosong, push object baru ke array tasks
+//    - Kosongkan input
+//    - Panggil render() lagi supaya tampilan update
+
+// 5. Saat tombol "hapus" di salah satu task diklik:
+//    - Hapus task itu dari array (pakai .filter() atau .splice())
+//    - Panggil render() lagi
+
+// 6. Saat checkbox/tombol "selesai" diklik:
+//    - Ubah properti `done` task itu jadi true/false (toggle)
+//    - Panggil render() lagi (biar bisa kasih style coret/strikethrough kalau done)
+
+// TANTANGAN: gimana cara tau task mana yang mau dihapus/ditandai kalau semuanya di-generate dari array?
+// Hint: kasih setiap task index/id, simpan di elemen HTML pakai data attribute, baca lagi pakai event delegation

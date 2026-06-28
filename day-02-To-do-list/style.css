@@ -16,6 +16,7 @@ body {
 
 .app {
   text-align: center;
+  width: 320px;
 }
 
-/* TODO: styling tombol dan display calculator kamu di sini */
+/* TODO: styling input, button, dan list task kamu di sini */
