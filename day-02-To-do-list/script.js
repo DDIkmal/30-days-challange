@@ -7,9 +7,11 @@
 //   Ini disebut konsep "render": baca data dari array -> ubah jadi HTML -> tampilkan
 
 // 1. Ambil elemen input, button "Add", dan container list dari HTML
+const input = document.querySelector('input')
+const Add = document.querySelector('button');
 
 // 2. Siapkan array kosong untuk nyimpen semua task
-// let tasks = [];
+let tasks = [];
 // Setiap task bisa berupa object, contoh: { text: "Belajar JS", done: false }
 
 // 3. Buat function render() yang:
@@ -17,6 +19,9 @@
 //    - Looping (forEach/map) lewat array tasks
 //    - Untuk setiap task, buat elemen <li> baru dan masukkan ke container
 //    - Kasih tombol "hapus" dan checkbox/tombol "selesai" di tiap <li>
+function render(){
+
+};
 
 // 4. Saat button "Add" diklik:
 //    - Ambil value dari input
