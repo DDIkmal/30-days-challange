@@ -50,8 +50,9 @@ setAlarm.addEventListener("click", () => {
     const timeValue = alrmInput.value;
     if (timeValue) {
         alarmTime = timeValue;
-       
         alarmStatus.textContent = `Alarm set for ${alarmTime}`;
+    }else {
+        alarmStatus.textContent = "Please enter a valid time to set the alarm.";
     }
 });
 
