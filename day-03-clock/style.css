@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, sans-serif;
+  background: #1e1e2f;
+  color: #fff;
+}
+
+.app {
+  text-align: center;
+}
+
+h1{
+  margin: 20px;
+}
+
+#clock {
+  font-size: 3rem;
+  margin: 20px 0;
+}
+
+input[type="time"] {
+  padding: 10px;
+  font-size: 1rem;
+  margin: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin: 10px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #45a049;
+}

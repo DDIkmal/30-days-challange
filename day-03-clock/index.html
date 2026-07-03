@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 3 - Digital Clock & Alarm</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <h1>Digital Clock</h1>
+
+    <!-- display the clock here, example format: 07:30:45 -->
+    <div id="clock">00:00:00</div>
+
+    <h2>Set Alarm</h2>
+    <!-- use an input type="time" to pick the alarm time -->
+    <input type="time" id="alarmInput">
+    <!-- "Set Alarm" button and "Clear Alarm" button -->
+    <button id="setAlarmBtn">Set Alarm</button>
+    <button id="clearAlarmBtn">Clear Alarm</button>
+
+    <!--display the alarm status (e.g.: "Alarm set: 07:30" or "No alarm set") -->
+    <div id="alarmStatus">No alarm set</div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
