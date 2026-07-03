@@ -1,38 +1,39 @@
 // DAY 2: TO-DO LIST
-// Goal: tambah task, tandai selesai, hapus task
+// Goal: Add task, Mark as done, delete task
 
-// KONSEP BARU dibanding Day 1:
-// - Kamu butuh nyimpen LEBIH dari 1 nilai sekaligus (banyak task), jadi pakai ARRAY, bukan 1 variabel string
-// - Setiap kali array berubah (nambah/hapus task), tampilan HARUS di-render ulang dari awal
-//   Ini disebut konsep "render": baca data dari array -> ubah jadi HTML -> tampilkan
-
-// 1. Ambil elemen input, button "Add", dan container list dari HTML
+// 1. Add element input, button "Add" and container list from HTML
 const input = document.querySelector('input')
 const Add = document.querySelector('button');
 const container = document.querySelector('.container');
 
-// 2. Siapkan array kosong untuk nyimpen semua task
+// 2. Blank array to store tasks
 let tasks = [];
-// Setiap task bisa berupa object, contoh: { text: "Belajar JS", done: false }
+// every task is an object, example: { text: "Learn JS", done: false }
 
-// 3. Buat function render() yang:
-//    - Mengosongkan container list (innerHTML = '')
-//    - Looping (forEach/map) lewat array tasks
-//    - Untuk setiap task, buat elemen <li> baru dan masukkan ke container
-//    - Kasih tombol "hapus" dan checkbox/tombol "selesai" di tiap <li>
+// 3. Create function render() that:
+//    - Empties the container list (innerHTML = '')
+//    - Loops through the tasks array (forEach/map)
+//    - For each task, creates a new <li> element and inserts it into the container
+//    - Adds a "Delete" button and a checkbox for every <li>
 function render(){
+    // Empty the container first
     container.innerHTML = '';
-
+    
+    // Loop through tasks and create <li> for each task
     tasks.forEach((task, index) => {
         const li = document.createElement('li');
         li.textContent = task.text;
 
-
+        // Add checkbox for each task
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
+        // Set the checkbox state based on task.done
         checkbox.checked = task.done;
+        // Add index data attribute to the checkbox to identify which task to toggle
         checkbox.dataset.index = index;
-        li.prepend(checkbox); 
+
+        li.prepend(checkbox);
+        // Add event listener to checkbox to toggle task.donea 
         checkbox.addEventListener('change', (e) => {
             task.done = !task.done;
             render();
@@ -41,11 +42,12 @@ function render(){
         li.style.textAlign = 'left'
         
 
-
+        // Add delete button
         const del = document.createElement('button');
         del.textContent = 'Delete';
-        del.dataset.index = index; // kasih data attribute biar tau task mana yang mau dihapus
+        del.dataset.index = index; // add index data attribute to the delete button to identify which task to delete
         li.appendChild(del);
+        // Add event listener to delete button
         del.addEventListener('click', (e) => {
             
             tasks.splice(index, 1);
@@ -54,34 +56,25 @@ function render(){
         });
         
 
-        
+        // Append the <li> to the container
         container.appendChild(li);
     });
 };
 
-// 4. Saat button "Add" diklik:
-//    - Ambil value dari input
-//    - Kalau tidak kosong, push object baru ke array tasks
-//    - Kosongkan input
-//    - Panggil render() lagi supaya tampilan update
-
+// 4. Add event listener to the "Add" button
 Add.addEventListener('click', (e) => {
-    e.preventDefault();
+    e.preventDefault();// Prevent form submission
+
     const text = input.value;
+
+    // Check if the input is not empty
     if (text) {
+        // Add the new task to the tasks array
         tasks.push({ text, done: false });
+        
         input.value = '';
         render();
     }
 });
 
-// 5. Saat tombol "hapus" di salah satu task diklik:
-//    - Hapus task itu dari array (pakai .filter() atau .splice())
-//    - Panggil render() lagi
-
-// 6. Saat checkbox/tombol "selesai" diklik:
-//    - Ubah properti `done` task itu jadi true/false (toggle)
-//    - Panggil render() lagi (biar bisa kasih style coret/strikethrough kalau done)
-
-// TANTANGAN: gimana cara tau task mana yang mau dihapus/ditandai kalau semuanya di-generate dari array?
-// Hint: kasih setiap task index/id, simpan di elemen HTML pakai data attribute, baca lagi pakai event delegation
+//
