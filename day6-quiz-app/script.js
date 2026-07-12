@@ -86,7 +86,7 @@ function loadQuestion() {
     button.textContent = option;
     //   - add a click listener that calls selectAnswer(index, button)
     button.addEventListener("click", () => selectAnswer(index, button));
-    //   - append it to optionsContainer
+    //     - append it to optionsContainer
     optionsContainer.appendChild(button);
   });
 
