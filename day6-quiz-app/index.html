@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 6 - Quiz App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="quiz-container">
+    <h1>Quiz App</h1>
+
+    <!-- Progress info: e.g. "Question 1 of 5" -->
+    <div id="progress" class="progress"></div>
+
+    <!-- Question text will be rendered here -->
+    <h2 id="question-text"></h2>
+
+    <!-- Options (buttons) will be rendered here dynamically -->
+    <div id="options-container" class="options-container"></div>
+
+    <!-- Next button, disabled until an option is picked -->
+    <button id="next-btn" disabled>Next</button>
+
+    <!-- Result screen, hidden until quiz finishes -->
+    <div id="result-container" class="result-container hidden">
+      <h2>Quiz Finished!</h2>
+      <p id="score-text"></p>
+      <button id="restart-btn">Restart Quiz</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
